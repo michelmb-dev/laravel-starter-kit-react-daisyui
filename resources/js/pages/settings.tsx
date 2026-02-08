@@ -8,6 +8,7 @@ import { TwoFactor } from '@/components/settings/two-factor';
 import { Divider } from '@/components/ui/divider';
 import { AppLayout } from '@/layouts/app-layout';
 import { show } from '@/routes/settings';
+import { Password } from '@/components/settings/password';
 
 const breadcrumbs: TBreadcrumbItem[] = [
     {
@@ -29,6 +30,10 @@ export default function Settings({
             <Head title="Settings" />
             <div className="space-y-8">
                 <Profile {...props} />
+
+                <Divider />
+
+                <Password />
 
                 <Divider />
 

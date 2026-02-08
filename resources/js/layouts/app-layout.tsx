@@ -92,9 +92,12 @@ export function AppLayout({ breadcrumbs, children }: PropsWithChildren<Props>) {
                 checked={isOpen}
                 onChange={(e) => setIsOpen(e.target.checked)}
             />
-            <DrawerContent>
+            <DrawerContent className="flex h-screen flex-col overflow-hidden">
                 <HeaderLayout breadcrumbs={breadcrumbs} />
-                <div className="h-full bg-base-100 p-6">{children}</div>
+                {/* CONTENT */}
+                <div className="flex-1 overflow-y-auto bg-base-100 p-6">
+                    {children}
+                </div>
             </DrawerContent>
             <DrawerSide>
                 <DrawerOverlay drawerId="drawer-admin" />
