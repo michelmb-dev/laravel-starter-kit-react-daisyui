@@ -1,5 +1,5 @@
-import { cn } from '@/lib/utils';
-import type { ComponentProps, PropsWithChildren } from 'react';
+import { cn } from '@/lib/utils'
+import type { ComponentProps, PropsWithChildren } from 'react'
 
 export function HoverEffect({
     className,
@@ -18,5 +18,5 @@ export function HoverEffect({
             <div></div>
             <div></div>
         </div>
-    );
+    )
 }

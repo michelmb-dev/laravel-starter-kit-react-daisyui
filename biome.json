@@ -1,0 +1,83 @@
+{
+    "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+    "vcs": {
+        "enabled": true,
+        "clientKind": "git",
+        "useIgnoreFile": true
+    },
+    "files": {
+        "includes": ["resources/**"]
+    },
+    "formatter": {
+        "indentStyle": "space",
+        "indentWidth": 4
+    },
+    "css": {
+        "parser": {
+            "tailwindDirectives": true
+        },
+        "formatter": {
+            "quoteStyle": "single"
+        }
+    },
+    "javascript": {
+        "formatter": {
+            "quoteStyle": "single",
+            "semicolons": "asNeeded"
+        }
+    },
+    "linter": {
+        "enabled": true,
+        "rules": {
+            "a11y": {
+                "recommended": false
+            },
+            "recommended": true,
+            "correctness": {
+                "noUnusedImports": "warn",
+                "noChildrenProp": "off",
+                "useExhaustiveDependencies": "warn",
+                "noUnknownPseudoElement": "warn"
+            },
+            "security": {
+                "noDangerouslySetInnerHtml": "error"
+            },
+            "style": {
+                "noNonNullAssertion": "warn",
+                "useImportType": "error"
+            },
+            "suspicious": {
+                "noExplicitAny": "error",
+                "noArrayIndexKey": "off",
+                "noAssignInExpressions": "warn",
+                "noDocumentCookie": "off",
+                "useIterableCallbackReturn": "warn"
+            }
+        }
+    },
+
+    "assist": {
+        "enabled": true,
+        "actions": {
+            "source": {
+                "organizeImports": {
+                    "level": "on",
+                    "options": {
+                        "groups": [
+                            { "source": ":EXTERNAL:" },
+                            { "source": ":INTERNAL:" }
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "overrides": [
+        {
+            "includes": ["**/*.yml"],
+            "formatter": {
+                "indentWidth": 2
+            }
+        }
+    ]
+}

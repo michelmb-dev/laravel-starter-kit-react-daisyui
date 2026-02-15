@@ -1,21 +1,21 @@
-import ProfileController from '@/actions/App/Http/Controllers/Settings/ProfileController';
-import Heading from '@/components/shared/heading';
-import { Button } from '@/components/ui/button';
-import { Fieldset } from '@/components/ui/fieldset';
-import { Input } from '@/components/ui/input';
-import { send } from '@/routes/verification';
-import { SharedData } from '@/types';
-import { Transition } from '@headlessui/react';
-import { Form, Link, usePage } from '@inertiajs/react';
+import ProfileController from '@/actions/App/Http/Controllers/Settings/ProfileController'
+import Heading from '@/components/shared/heading'
+import { Button } from '@/components/ui/button'
+import { Fieldset } from '@/components/ui/fieldset'
+import { Input } from '@/components/ui/input'
+import { send } from '@/routes/verification'
+import type { SharedData } from '@/types'
+import { Transition } from '@headlessui/react'
+import { Form, Link, usePage } from '@inertiajs/react'
 
 export function Profile({
     mustVerifyEmail,
     status,
 }: {
-    mustVerifyEmail: boolean;
-    status?: string;
+    mustVerifyEmail: boolean
+    status?: string
 }) {
-    const { auth } = usePage<SharedData>().props;
+    const { auth } = usePage<SharedData>().props
 
     return (
         <>
@@ -107,5 +107,5 @@ export function Profile({
                 )}
             </Form>
         </>
-    );
+    )
 }

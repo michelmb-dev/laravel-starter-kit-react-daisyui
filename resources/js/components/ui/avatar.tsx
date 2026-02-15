@@ -1,7 +1,7 @@
-import { cva, type VariantProps } from 'class-variance-authority';
+import { cva, type VariantProps } from 'class-variance-authority'
 
-import { cn } from '@/lib/utils';
-import { type ComponentProps } from 'react';
+import { cn } from '@/lib/utils'
+import type { ComponentProps } from 'react'
 
 const avatarVariants = cva('avatar', {
     variants: {
@@ -15,7 +15,7 @@ const avatarVariants = cva('avatar', {
             offline: 'avatar-placeholder avatar-offline',
         },
     },
-});
+})
 
 export function Avatar({
     className,
@@ -34,5 +34,5 @@ export function Avatar({
             )}
             {...props}
         />
-    );
+    )
 }

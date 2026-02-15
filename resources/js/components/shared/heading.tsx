@@ -2,8 +2,8 @@ export default function Heading({
     title,
     description,
 }: {
-    title: string;
-    description?: string;
+    title: string
+    description?: string
 }) {
     return (
         <div className="mb-8 space-y-0.5">
@@ -12,5 +12,5 @@ export default function Heading({
                 <p className="text-sm text-base-content/80">{description}</p>
             )}
         </div>
-    );
+    )
 }

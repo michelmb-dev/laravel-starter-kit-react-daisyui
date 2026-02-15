@@ -1,9 +1,9 @@
-import { cva, type VariantProps } from 'class-variance-authority';
+import { cva, type VariantProps } from 'class-variance-authority'
 
-import { Icon } from '@/components/ui/icon';
-import { cn } from '@/lib/utils';
-import { CircleAlertIcon, CircleCheckIcon, InfoIcon } from 'lucide-react';
-import { ComponentProps } from 'react';
+import { Icon } from '@/components/ui/icon'
+import { cn } from '@/lib/utils'
+import { CircleAlertIcon, CircleCheckIcon, InfoIcon } from 'lucide-react'
+import type { ComponentProps } from 'react'
 
 const alertVariants = cva('alert', {
     variants: {
@@ -23,7 +23,7 @@ const alertVariants = cva('alert', {
             horizontal: 'alert-horizontal',
         },
     },
-});
+})
 
 export function Alert({
     children,
@@ -50,5 +50,5 @@ export function Alert({
             {color === 'info' && <Icon iconNode={InfoIcon} />}
             <span>{children}</span>
         </div>
-    );
+    )
 }

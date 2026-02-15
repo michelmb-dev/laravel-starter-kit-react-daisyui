@@ -1,16 +1,15 @@
-import Heading from '@/components/shared/heading';
-import { Form } from '@inertiajs/react';
-import PasswordController from '@/actions/App/Http/Controllers/Settings/PasswordController';
-import { Fieldset } from '@/components/ui/fieldset';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Transition } from '@headlessui/react';
-import { useRef } from 'react';
-
+import Heading from '@/components/shared/heading'
+import { Form } from '@inertiajs/react'
+import PasswordController from '@/actions/App/Http/Controllers/Settings/PasswordController'
+import { Fieldset } from '@/components/ui/fieldset'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
+import { Transition } from '@headlessui/react'
+import { useRef } from 'react'
 
 export function Password() {
-    const passwordInput = useRef<HTMLInputElement>(null);
-    const currentPasswordInput = useRef<HTMLInputElement>(null);
+    const passwordInput = useRef<HTMLInputElement>(null)
+    const currentPasswordInput = useRef<HTMLInputElement>(null)
 
     return (
         <>
@@ -32,11 +31,11 @@ export function Password() {
                 resetOnSuccess
                 onError={(errors) => {
                     if (errors.password) {
-                        passwordInput.current?.focus();
+                        passwordInput.current?.focus()
                     }
 
                     if (errors.current_password) {
-                        currentPasswordInput.current?.focus();
+                        currentPasswordInput.current?.focus()
                     }
                 }}
                 className="space-y-6"
@@ -114,5 +113,5 @@ export function Password() {
                 )}
             </Form>
         </>
-    );
+    )
 }

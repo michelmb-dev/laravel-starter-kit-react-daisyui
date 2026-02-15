@@ -1,7 +1,7 @@
-import { cn } from '@/lib/utils';
-import { InertiaLinkProps, Link } from '@inertiajs/react';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { type ComponentProps } from 'react';
+import { cn } from '@/lib/utils'
+import { type InertiaLinkProps, Link } from '@inertiajs/react'
+import { cva, type VariantProps } from 'class-variance-authority'
+import type { ComponentProps } from 'react'
 
 const linkVariants = cva('link', {
     variants: {
@@ -24,7 +24,7 @@ const linkVariants = cva('link', {
     defaultVariants: {
         color: 'default',
     },
-});
+})
 
 export function BaseLink({
     color,
@@ -37,7 +37,7 @@ export function BaseLink({
             className={cn(linkVariants({ color, underline, className }))}
             {...props}
         />
-    );
+    )
 }
 
 export function InertiaLink({
@@ -51,5 +51,5 @@ export function InertiaLink({
             className={cn(linkVariants({ color, underline, className }))}
             {...props}
         />
-    );
+    )
 }

@@ -1,7 +1,7 @@
-import { cva, type VariantProps } from 'class-variance-authority';
+import { cva, type VariantProps } from 'class-variance-authority'
 
-import { cn } from '@/lib/utils';
-import { type ComponentProps } from 'react';
+import { cn } from '@/lib/utils'
+import type { ComponentProps } from 'react'
 
 export const buttonVariants = cva('btn', {
     variants: {
@@ -39,7 +39,7 @@ export const buttonVariants = cva('btn', {
             circle: 'btn-circle', // 1:1 ratio with rounded corners
         },
     },
-});
+})
 
 export function Button({
     className,
@@ -64,5 +64,5 @@ export function Button({
             )}
             {...props}
         />
-    );
+    )
 }

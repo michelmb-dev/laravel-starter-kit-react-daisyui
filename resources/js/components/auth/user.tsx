@@ -1,23 +1,23 @@
-import { Avatar } from '@/components/ui/avatar';
+import { Avatar } from '@/components/ui/avatar'
 import {
     Dropdown,
     DropdownContent,
     DropdownItem,
     DropdownTrigger,
-} from '@/components/ui/dropdown';
-import { InertiaLink } from '@/components/ui/link';
-import { useInitials } from '@/hooks/use-initials';
-import { cn } from '@/lib/utils';
-import { logout } from '@/routes';
-import { show } from '@/routes/settings';
-import type { SharedData, User } from '@/types';
-import { router, usePage } from '@inertiajs/react';
+} from '@/components/ui/dropdown'
+import { InertiaLink } from '@/components/ui/link'
+import { useInitials } from '@/hooks/use-initials'
+import { cn } from '@/lib/utils'
+import { logout } from '@/routes'
+import { show } from '@/routes/settings'
+import type { SharedData, User } from '@/types'
+import { router, usePage } from '@inertiajs/react'
 import {
     ChevronsUpDown,
     LogOutIcon,
     SettingsIcon,
     User2Icon,
-} from 'lucide-react';
+} from 'lucide-react'
 
 export function UserInfo({
     user,
@@ -25,12 +25,12 @@ export function UserInfo({
     showInitials = false,
     isDrawerOpen = true,
 }: {
-    user: User;
-    showEmail?: boolean;
-    showInitials?: boolean;
-    isDrawerOpen?: boolean;
+    user: User
+    showEmail?: boolean
+    showInitials?: boolean
+    isDrawerOpen?: boolean
 }) {
-    const getInitials = useInitials();
+    const getInitials = useInitials()
 
     return (
         <>
@@ -54,11 +54,11 @@ export function UserInfo({
                 </div>
             )}
         </>
-    );
+    )
 }
 
 export function UserMenu({ isDrawerOpen = false }: { isDrawerOpen?: boolean }) {
-    const { auth } = usePage<SharedData>().props;
+    const { auth } = usePage<SharedData>().props
 
     return (
         <div className="p-2">
@@ -99,5 +99,5 @@ export function UserMenu({ isDrawerOpen = false }: { isDrawerOpen?: boolean }) {
                 </DropdownContent>
             </Dropdown>
         </div>
-    );
+    )
 }

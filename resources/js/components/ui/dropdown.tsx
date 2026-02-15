@@ -1,6 +1,6 @@
-import { cn } from '@/lib/utils';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { type ComponentProps } from 'react';
+import { cn } from '@/lib/utils'
+import { cva, type VariantProps } from 'class-variance-authority'
+import type { ComponentProps } from 'react'
 
 const dropdownVariants = cva('dropdown', {
     variants: {
@@ -25,7 +25,7 @@ const dropdownVariants = cva('dropdown', {
         alignment: 'center',
         placement: 'bottom',
     },
-});
+})
 
 export function Dropdown({
     className,
@@ -46,7 +46,7 @@ export function Dropdown({
             )}
             {...props}
         />
-    );
+    )
 }
 
 export function DropdownTrigger({
@@ -71,7 +71,7 @@ export function DropdownTrigger({
             )}
             {...props}
         />
-    );
+    )
 }
 
 export function DropdownContent({ className, ...props }: ComponentProps<'ul'>) {
@@ -84,9 +84,9 @@ export function DropdownContent({ className, ...props }: ComponentProps<'ul'>) {
             )}
             {...props}
         />
-    );
+    )
 }
 
 export function DropdownItem({ ...props }: ComponentProps<'li'>) {
-    return <li {...props} />;
+    return <li {...props} />
 }

@@ -1,6 +1,6 @@
-import { cn } from '@/lib/utils';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { type ComponentProps } from 'react';
+import { cn } from '@/lib/utils'
+import { cva, type VariantProps } from 'class-variance-authority'
+import type { ComponentProps } from 'react'
 
 const dividerVariants = cva('divider', {
     variants: {
@@ -26,7 +26,7 @@ const dividerVariants = cva('divider', {
     defaultVariants: {
         direction: 'vertical',
     },
-});
+})
 
 export function Divider({
     label,
@@ -52,5 +52,5 @@ export function Divider({
         >
             {label}
         </span>
-    );
+    )
 }

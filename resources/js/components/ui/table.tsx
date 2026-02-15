@@ -1,6 +1,6 @@
-import { cn } from '@/lib/utils';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { type ComponentProps } from 'react';
+import { cn } from '@/lib/utils'
+import { cva, type VariantProps } from 'class-variance-authority'
+import type { ComponentProps } from 'react'
 
 const tableVariants = cva('table', {
     variants: {
@@ -20,7 +20,7 @@ const tableVariants = cva('table', {
             xl: 'table-xl',
         },
     },
-});
+})
 
 export function Table({
     style,
@@ -38,13 +38,13 @@ export function Table({
             )}
             {...props}
         />
-    );
+    )
 }
 
 export function TableHead({ ...props }: ComponentProps<'thead'>) {
-    return <thead {...props} />;
+    return <thead {...props} />
 }
 
 export function TableBody({ ...props }: ComponentProps<'tbody'>) {
-    return <tbody {...props} />;
+    return <tbody {...props} />
 }

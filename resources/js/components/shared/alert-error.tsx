@@ -1,11 +1,11 @@
-import { Alert } from '@/components/ui/alert';
+import { Alert } from '@/components/ui/alert'
 
 export default function AlertError({
     errors,
     title,
 }: {
-    errors: string[];
-    title?: string;
+    errors: string[]
+    title?: string
 }) {
     return (
         <Alert color="error">
@@ -18,5 +18,5 @@ export default function AlertError({
                 </ul>
             </div>
         </Alert>
-    );
+    )
 }

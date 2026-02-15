@@ -1,6 +1,6 @@
-import { cn } from '@/lib/utils';
-import { cva, VariantProps } from 'class-variance-authority';
-import { ComponentProps } from 'react';
+import { cn } from '@/lib/utils'
+import { cva, type VariantProps } from 'class-variance-authority'
+import type { ComponentProps } from 'react'
 
 const tooltipVariants = cva('tooltip', {
     variants: {
@@ -24,7 +24,7 @@ const tooltipVariants = cva('tooltip', {
             open: 'tooltip-open',
         },
     },
-});
+})
 
 export function Tooltip({
     text,
@@ -46,5 +46,5 @@ export function Tooltip({
             )}
             data-tip={text}
         />
-    );
+    )
 }

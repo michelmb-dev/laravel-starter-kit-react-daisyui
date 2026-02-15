@@ -1,10 +1,10 @@
-import { Button } from '@/components/ui/button';
-import { Fieldset } from '@/components/ui/fieldset';
-import { Input } from '@/components/ui/input';
-import { Loading } from '@/components/ui/loading';
-import AuthLayout from '@/layouts/auth-layout';
-import { store } from '@/routes/password/confirm';
-import { Form, Head } from '@inertiajs/react';
+import { Button } from '@/components/ui/button'
+import { Fieldset } from '@/components/ui/fieldset'
+import { Input } from '@/components/ui/input'
+import { Loading } from '@/components/ui/loading'
+import AuthLayout from '@/layouts/auth-layout'
+import { store } from '@/routes/password/confirm'
+import { Form, Head } from '@inertiajs/react'
 
 export default function ConfirmPassword() {
     return (
@@ -45,5 +45,5 @@ export default function ConfirmPassword() {
                 )}
             </Form>
         </AuthLayout>
-    );
+    )
 }

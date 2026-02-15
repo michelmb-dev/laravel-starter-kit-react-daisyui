@@ -1,6 +1,6 @@
-import { cn } from '@/lib/utils';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { type ComponentProps } from 'react';
+import { cn } from '@/lib/utils'
+import { cva, type VariantProps } from 'class-variance-authority'
+import type { ComponentProps } from 'react'
 
 const selectVariants = cva('select', {
     variants: {
@@ -25,7 +25,7 @@ const selectVariants = cva('select', {
             xl: 'select-xl',
         },
     },
-});
+})
 
 export function Select({
     style,
@@ -47,11 +47,11 @@ export function Select({
             )}
             {...props}
         />
-    );
+    )
 }
 
 export function SelectOption({ ...props }: ComponentProps<'option'>) {
-    return <option {...props} />;
+    return <option {...props} />
 }
 
 export function SelectWithLabel({
@@ -71,5 +71,5 @@ export function SelectWithLabel({
             <span className="label">{label}</span>
             {children}
         </label>
-    );
+    )
 }

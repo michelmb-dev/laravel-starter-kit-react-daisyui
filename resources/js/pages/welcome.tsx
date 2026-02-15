@@ -5,19 +5,19 @@ import {
     CardDescription,
     CardImage,
     CardTitle,
-} from '@/components/ui/card';
-import { InertiaLink } from '@/components/ui/link';
-import { Nav, NavEnd, NavStart } from '@/components/ui/nav';
-import { dashboard, login, register } from '@/routes';
-import { type SharedData } from '@/types';
-import { Head, usePage } from '@inertiajs/react';
+} from '@/components/ui/card'
+import { InertiaLink } from '@/components/ui/link'
+import { Nav, NavEnd, NavStart } from '@/components/ui/nav'
+import { dashboard, login, register } from '@/routes'
+import type { SharedData } from '@/types'
+import { Head, usePage } from '@inertiajs/react'
 
 export default function Welcome({
     canRegister = true,
 }: {
-    canRegister?: boolean;
+    canRegister?: boolean
 }) {
-    const { auth } = usePage<SharedData>().props;
+    const { auth } = usePage<SharedData>().props
 
     return (
         <>
@@ -80,6 +80,7 @@ export default function Welcome({
                                         href="https://laravel.com/docs"
                                         target="_blank"
                                         className="ml-1 inline-flex items-center space-x-1 font-medium text-[#f53003] underline underline-offset-4 dark:text-[#FF4433]"
+                                        rel="noopener"
                                     >
                                         <span>Documentation</span>
                                         <svg
@@ -113,6 +114,7 @@ export default function Welcome({
                                         href="https://laracasts.com"
                                         target="_blank"
                                         className="ml-1 inline-flex items-center space-x-1 font-medium text-[#f53003] underline underline-offset-4 dark:text-[#FF4433]"
+                                        rel="noopener"
                                     >
                                         <span>Laracasts</span>
                                         <svg
@@ -142,6 +144,7 @@ export default function Welcome({
                                         href="https://daisyui.com/"
                                         target="_blank"
                                         className="ml-1 inline-flex items-center space-x-1 font-medium text-[#f53003] underline underline-offset-4 dark:text-[#FF4433]"
+                                        rel="noopener"
                                     >
                                         <span>DaisyUI</span>
                                         <svg
@@ -168,11 +171,12 @@ export default function Welcome({
                                 target="_blank"
                                 href="https://cloud.laravel.com"
                                 children="Deploy now"
+                                rel="noopener"
                             />
                         </CardActions>
                     </CardBody>
                 </Card>
             </div>
         </>
-    );
+    )
 }

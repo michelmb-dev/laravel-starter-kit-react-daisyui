@@ -1,21 +1,21 @@
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button'
 import {
     Card,
     CardActions,
     CardBody,
     CardDescription,
     CardTitle,
-} from '@/components/ui/card';
-import { regenerateRecoveryCodes } from '@/routes/two-factor';
-import { Form } from '@inertiajs/react';
-import { Eye, EyeOff, LockKeyhole, RefreshCw } from 'lucide-react';
-import { useCallback, useEffect, useRef, useState } from 'react';
-import AlertError from '../shared/alert-error';
+} from '@/components/ui/card'
+import { regenerateRecoveryCodes } from '@/routes/two-factor'
+import { Form } from '@inertiajs/react'
+import { Eye, EyeOff, LockKeyhole, RefreshCw } from 'lucide-react'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import AlertError from '../shared/alert-error'
 
 interface TwoFactorRecoveryCodesProps {
-    recoveryCodesList: string[];
-    fetchRecoveryCodes: () => Promise<void>;
-    errors: string[];
+    recoveryCodesList: string[]
+    fetchRecoveryCodes: () => Promise<void>
+    errors: string[]
 }
 
 export default function TwoFactorRecoveryCodes({
@@ -23,34 +23,34 @@ export default function TwoFactorRecoveryCodes({
     fetchRecoveryCodes,
     errors,
 }: TwoFactorRecoveryCodesProps) {
-    const [codesAreVisible, setCodesAreVisible] = useState<boolean>(false);
-    const codesSectionRef = useRef<HTMLDivElement | null>(null);
-    const canRegenerateCodes = recoveryCodesList.length > 0 && codesAreVisible;
+    const [codesAreVisible, setCodesAreVisible] = useState<boolean>(false)
+    const codesSectionRef = useRef<HTMLDivElement | null>(null)
+    const canRegenerateCodes = recoveryCodesList.length > 0 && codesAreVisible
 
     const toggleCodesVisibility = useCallback(async () => {
         if (!codesAreVisible && !recoveryCodesList.length) {
-            await fetchRecoveryCodes();
+            await fetchRecoveryCodes()
         }
 
-        setCodesAreVisible(!codesAreVisible);
+        setCodesAreVisible(!codesAreVisible)
 
         if (!codesAreVisible) {
             setTimeout(() => {
                 codesSectionRef.current?.scrollIntoView({
                     behavior: 'smooth',
                     block: 'nearest',
-                });
-            });
+                })
+            })
         }
-    }, [codesAreVisible, recoveryCodesList.length, fetchRecoveryCodes]);
+    }, [codesAreVisible, recoveryCodesList.length, fetchRecoveryCodes])
 
     useEffect(() => {
         if (!recoveryCodesList.length) {
-            fetchRecoveryCodes();
+            fetchRecoveryCodes()
         }
-    }, [recoveryCodesList.length, fetchRecoveryCodes]);
+    }, [recoveryCodesList.length, fetchRecoveryCodes])
 
-    const RecoveryCodeIconComponent = codesAreVisible ? EyeOff : Eye;
+    const RecoveryCodeIconComponent = codesAreVisible ? EyeOff : Eye
 
     return (
         <Card className="border border-neutral p-4">
@@ -163,5 +163,5 @@ export default function TwoFactorRecoveryCodes({
                 </div>
             </CardActions>
         </Card>
-    );
+    )
 }

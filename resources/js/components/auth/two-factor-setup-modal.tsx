@@ -1,22 +1,21 @@
-import InputError from '@/components/shared/input-error';
+import { Form } from '@inertiajs/react'
+import { REGEXP_ONLY_DIGITS } from 'input-otp'
+import { Check, Copy, QrCode } from 'lucide-react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import InputError from '@/components/shared/input-error'
+import { Button } from '@/components/ui/button'
+import { Dialog, DialogBox } from '@/components/ui/dialog'
+import { Input } from '@/components/ui/input'
 import {
     InputOTP,
     InputOTPGroup,
     InputOTPSlot,
-} from '@/components/ui/input-otp';
-
-import { Button } from '@/components/ui/button';
-import { Dialog, DialogBox } from '@/components/ui/dialog';
-import { Input } from '@/components/ui/input';
-import { Loading } from '@/components/ui/loading';
-import { useClipboard } from '@/hooks/use-clipboard';
-import { OTP_MAX_LENGTH } from '@/hooks/use-two-factor-auth';
-import { confirm } from '@/routes/two-factor';
-import { Form } from '@inertiajs/react';
-import { REGEXP_ONLY_DIGITS } from 'input-otp';
-import { Check, Copy, QrCode } from 'lucide-react';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import AlertError from '../shared/alert-error';
+} from '@/components/ui/input-otp'
+import { Loading } from '@/components/ui/loading'
+import { useClipboard } from '@/hooks/use-clipboard'
+import { OTP_MAX_LENGTH } from '@/hooks/use-two-factor-auth'
+import { confirm } from '@/routes/two-factor'
+import AlertError from '../shared/alert-error'
 
 function TwoFactorSetupStep({
     qrCodeSvg,
@@ -25,14 +24,14 @@ function TwoFactorSetupStep({
     onNextStep,
     errors,
 }: {
-    qrCodeSvg: string | null;
-    manualSetupKey: string | null;
-    buttonText: string;
-    onNextStep: () => void;
-    errors: string[];
+    qrCodeSvg: string | null
+    manualSetupKey: string | null
+    buttonText: string
+    onNextStep: () => void
+    errors: string[]
 }) {
-    const [copiedText, copy] = useClipboard();
-    const IconComponent = copiedText === manualSetupKey ? Check : Copy;
+    const [copiedText, copy] = useClipboard()
+    const IconComponent = copiedText === manualSetupKey ? Check : Copy
 
     return (
         <>
@@ -44,12 +43,12 @@ function TwoFactorSetupStep({
                         <div className="border-border mx-auto aspect-square w-64 rounded-lg border">
                             <div className="z-10 flex h-full w-full items-center justify-center p-5">
                                 {qrCodeSvg ? (
-                                    <div
-                                        className="aspect-square w-full rounded-lg bg-white p-2 [&_svg]:size-full"
-                                        dangerouslySetInnerHTML={{
-                                            __html: qrCodeSvg,
-                                        }}
-                                    />
+                                    <div className="aspect-square w-full rounded-lg bg-white p-2 [&_svg]:size-full">
+                                        <img
+                                            src={`data:image/svg+xml;base64,${btoa(qrCodeSvg)}`}
+                                            alt="QR Code"
+                                        />
+                                    </div>
                                 ) : (
                                     <Loading />
                                 )}
@@ -101,24 +100,24 @@ function TwoFactorSetupStep({
                 </>
             )}
         </>
-    );
+    )
 }
 
 function TwoFactorVerificationStep({
     onClose,
     onBack,
 }: {
-    onClose: () => void;
-    onBack: () => void;
+    onClose: () => void
+    onBack: () => void
 }) {
-    const [code, setCode] = useState<string>('');
-    const pinInputContainerRef = useRef<HTMLDivElement>(null);
+    const [code, setCode] = useState<string>('')
+    const pinInputContainerRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         setTimeout(() => {
-            pinInputContainerRef.current?.querySelector('input')?.focus();
-        }, 0);
-    }, []);
+            pinInputContainerRef.current?.querySelector('input')?.focus()
+        }, 0)
+    }, [])
 
     return (
         <Form
@@ -131,8 +130,8 @@ function TwoFactorVerificationStep({
                 processing,
                 errors,
             }: {
-                processing: boolean;
-                errors?: { confirmTwoFactorAuthentication?: { code?: string } };
+                processing: boolean
+                errors?: { confirmTwoFactorAuthentication?: { code?: string } }
             }) => (
                 <>
                     <div
@@ -191,19 +190,19 @@ function TwoFactorVerificationStep({
                 </>
             )}
         </Form>
-    );
+    )
 }
 
 interface TwoFactorSetupModalProps {
-    isOpen: boolean;
-    onClose: () => void;
-    requiresConfirmation: boolean;
-    twoFactorEnabled: boolean;
-    qrCodeSvg: string | null;
-    manualSetupKey: string | null;
-    clearSetupData: () => void;
-    fetchSetupData: () => Promise<void>;
-    errors: string[];
+    isOpen: boolean
+    onClose: () => void
+    requiresConfirmation: boolean
+    twoFactorEnabled: boolean
+    qrCodeSvg: string | null
+    manualSetupKey: string | null
+    clearSetupData: () => void
+    fetchSetupData: () => Promise<void>
+    errors: string[]
 }
 
 export default function TwoFactorSetupModal({
@@ -218,12 +217,12 @@ export default function TwoFactorSetupModal({
     errors,
 }: TwoFactorSetupModalProps) {
     const [showVerificationStep, setShowVerificationStep] =
-        useState<boolean>(false);
+        useState<boolean>(false)
 
     const modalConfig = useMemo<{
-        title: string;
-        description: string;
-        buttonText: string;
+        title: string
+        description: string
+        buttonText: string
     }>(() => {
         if (twoFactorEnabled) {
             return {
@@ -231,7 +230,7 @@ export default function TwoFactorSetupModal({
                 description:
                     'Two-factor authentication is now enabled. Scan the QR code or enter the setup key in your authenticator app.',
                 buttonText: 'Close',
-            };
+            }
         }
 
         if (showVerificationStep) {
@@ -240,7 +239,7 @@ export default function TwoFactorSetupModal({
                 description:
                     'Enter the 6-digit code from your authenticator app',
                 buttonText: 'Continue',
-            };
+            }
         }
 
         return {
@@ -248,37 +247,37 @@ export default function TwoFactorSetupModal({
             description:
                 'To finish enabling two-factor authentication, scan the QR code or enter the setup key in your authenticator app',
             buttonText: 'Continue',
-        };
-    }, [twoFactorEnabled, showVerificationStep]);
+        }
+    }, [twoFactorEnabled, showVerificationStep])
 
     const handleModalNextStep = useCallback(() => {
         if (requiresConfirmation) {
-            setShowVerificationStep(true);
-            return;
+            setShowVerificationStep(true)
+            return
         }
 
-        clearSetupData();
-        onClose();
-    }, [requiresConfirmation, clearSetupData, onClose]);
+        clearSetupData()
+        onClose()
+    }, [requiresConfirmation, clearSetupData, onClose])
 
     const resetModalState = useCallback(() => {
-        setShowVerificationStep(false);
+        setShowVerificationStep(false)
 
         if (twoFactorEnabled) {
-            clearSetupData();
+            clearSetupData()
         }
-    }, [twoFactorEnabled, clearSetupData]);
+    }, [twoFactorEnabled, clearSetupData])
 
     useEffect(() => {
         if (isOpen && !qrCodeSvg) {
-            void fetchSetupData();
+            void fetchSetupData()
         }
-    }, [isOpen, qrCodeSvg, fetchSetupData]);
+    }, [isOpen, qrCodeSvg, fetchSetupData])
 
     const handleClose = useCallback(() => {
-        resetModalState();
-        onClose();
-    }, [onClose, resetModalState]);
+        resetModalState()
+        onClose()
+    }, [onClose, resetModalState])
 
     return (
         <Dialog open={isOpen} onOpenChange={(open) => !open && handleClose()}>
@@ -308,5 +307,5 @@ export default function TwoFactorSetupModal({
                 </div>
             </DialogBox>
         </Dialog>
-    );
+    )
 }

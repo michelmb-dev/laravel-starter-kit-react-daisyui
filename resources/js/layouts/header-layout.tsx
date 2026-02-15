@@ -2,16 +2,16 @@ import {
     Breadcrumb,
     BreadcrumbItem,
     BreadcrumbList,
-} from '@/components/ui/breadcrumb';
-import { DrawerOverlay } from '@/components/ui/drawer-sidebar';
-import { InertiaLink } from '@/components/ui/link';
-import { Nav, NavEnd, NavStart } from '@/components/ui/nav';
-import type { TBreadcrumbItem } from '@/types';
-import { ChevronRightIcon, SidebarOpen } from 'lucide-react';
+} from '@/components/ui/breadcrumb'
+import { DrawerOverlay } from '@/components/ui/drawer-sidebar'
+import { InertiaLink } from '@/components/ui/link'
+import { Nav, NavEnd, NavStart } from '@/components/ui/nav'
+import type { TBreadcrumbItem } from '@/types'
+import { ChevronRightIcon, SidebarOpen } from 'lucide-react'
 
 type Props = {
-    breadcrumbs: TBreadcrumbItem[];
-};
+    breadcrumbs: TBreadcrumbItem[]
+}
 
 export function HeaderLayout({ breadcrumbs }: Props) {
     return (
@@ -43,5 +43,5 @@ export function HeaderLayout({ breadcrumbs }: Props) {
             </NavStart>
             <NavEnd></NavEnd>
         </Nav>
-    );
+    )
 }

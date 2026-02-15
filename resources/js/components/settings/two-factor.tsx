@@ -1,17 +1,17 @@
-import TwoFactorRecoveryCodes from '@/components/auth/two-factor-recovery-codes';
-import TwoFactorSetupModal from '@/components/auth/two-factor-setup-modal';
-import Heading from '@/components/shared/heading';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { useTwoFactorAuth } from '@/hooks/use-two-factor-auth';
-import { disable, enable } from '@/routes/two-factor';
-import { Form } from '@inertiajs/react';
-import { ShieldBan, ShieldCheck } from 'lucide-react';
-import { useState } from 'react';
+import TwoFactorRecoveryCodes from '@/components/auth/two-factor-recovery-codes'
+import TwoFactorSetupModal from '@/components/auth/two-factor-setup-modal'
+import Heading from '@/components/shared/heading'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { useTwoFactorAuth } from '@/hooks/use-two-factor-auth'
+import { disable, enable } from '@/routes/two-factor'
+import { Form } from '@inertiajs/react'
+import { ShieldBan, ShieldCheck } from 'lucide-react'
+import { useState } from 'react'
 
 interface TwoFactorProps {
-    requiresConfirmation?: boolean;
-    twoFactorEnabled?: boolean;
+    requiresConfirmation?: boolean
+    twoFactorEnabled?: boolean
 }
 
 export function TwoFactor({
@@ -27,8 +27,8 @@ export function TwoFactor({
         recoveryCodesList,
         fetchRecoveryCodes,
         errors,
-    } = useTwoFactorAuth();
-    const [showSetupModal, setShowSetupModal] = useState<boolean>(false);
+    } = useTwoFactorAuth()
+    const [showSetupModal, setShowSetupModal] = useState<boolean>(false)
 
     return (
         <div className="space-y-6">
@@ -118,5 +118,5 @@ export function TwoFactor({
                 errors={errors}
             />
         </div>
-    );
+    )
 }

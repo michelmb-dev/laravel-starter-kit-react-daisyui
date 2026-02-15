@@ -1,6 +1,6 @@
-import { cn } from '@/lib/utils';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { type ComponentProps } from 'react';
+import { cn } from '@/lib/utils'
+import { cva, type VariantProps } from 'class-variance-authority'
+import type { ComponentProps } from 'react'
 
 const checkboxVariants = cva('checkbox', {
     variants: {
@@ -21,7 +21,7 @@ const checkboxVariants = cva('checkbox', {
             xl: 'checkbox-xl',
         },
     },
-});
+})
 
 export function Checkbox({
     color,
@@ -42,5 +42,5 @@ export function Checkbox({
             )}
             {...props}
         />
-    );
+    )
 }

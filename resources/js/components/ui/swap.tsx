@@ -1,6 +1,6 @@
-import { cn } from '@/lib/utils';
-import { cva, type VariantProps } from 'class-variance-authority';
-import type { ComponentProps, ReactNode } from 'react';
+import { cn } from '@/lib/utils'
+import { cva, type VariantProps } from 'class-variance-authority'
+import type { ComponentProps, ReactNode } from 'react'
 
 const swapVariants = cva('swap', {
     variants: {
@@ -9,7 +9,7 @@ const swapVariants = cva('swap', {
             rotate: 'swap-rotate',
         },
     },
-});
+})
 
 export function Swap({
     className,
@@ -18,8 +18,8 @@ export function Swap({
     swapOff,
     ...props
 }: ComponentProps<'label'> & {
-    swapOn: ReactNode | string;
-    swapOff: ReactNode | string;
+    swapOn: ReactNode | string
+    swapOff: ReactNode | string
 } & VariantProps<typeof swapVariants>) {
     return (
         <label
@@ -35,5 +35,5 @@ export function Swap({
             <div className="swap-on">{swapOn}</div>
             <div className="swap-off">{swapOff}</div>
         </label>
-    );
+    )
 }

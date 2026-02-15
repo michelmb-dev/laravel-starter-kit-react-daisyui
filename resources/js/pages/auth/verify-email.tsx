@@ -1,12 +1,12 @@
 // Components
-import { Alert } from '@/components/ui/alert';
-import { Button } from '@/components/ui/button';
-import { InertiaLink } from '@/components/ui/link';
-import { Loading } from '@/components/ui/loading';
-import AuthLayout from '@/layouts/auth-layout';
-import { logout } from '@/routes';
-import { send } from '@/routes/verification';
-import { Form, Head } from '@inertiajs/react';
+import { Alert } from '@/components/ui/alert'
+import { Button } from '@/components/ui/button'
+import { InertiaLink } from '@/components/ui/link'
+import { Loading } from '@/components/ui/loading'
+import AuthLayout from '@/layouts/auth-layout'
+import { logout } from '@/routes'
+import { send } from '@/routes/verification'
+import { Form, Head } from '@inertiajs/react'
 
 export default function VerifyEmail({ status }: { status?: string }) {
     return (
@@ -45,5 +45,5 @@ export default function VerifyEmail({ status }: { status?: string }) {
                 )}
             </Form>
         </AuthLayout>
-    );
+    )
 }

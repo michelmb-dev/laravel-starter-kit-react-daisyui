@@ -1,20 +1,20 @@
-import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Fieldset } from '@/components/ui/fieldset';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { BaseLink } from '@/components/ui/link';
-import { Loading } from '@/components/ui/loading';
-import AuthLayout from '@/layouts/auth-layout';
-import { register } from '@/routes';
-import { store } from '@/routes/login';
-import { request } from '@/routes/password';
-import { Form, Head } from '@inertiajs/react';
+import { Button } from '@/components/ui/button'
+import { Checkbox } from '@/components/ui/checkbox'
+import { Fieldset } from '@/components/ui/fieldset'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { BaseLink } from '@/components/ui/link'
+import { Loading } from '@/components/ui/loading'
+import AuthLayout from '@/layouts/auth-layout'
+import { register } from '@/routes'
+import { store } from '@/routes/login'
+import { request } from '@/routes/password'
+import { Form, Head } from '@inertiajs/react'
 
 interface LoginProps {
-    status?: string;
-    canResetPassword: boolean;
-    canRegister: boolean;
+    status?: string
+    canResetPassword: boolean
+    canRegister: boolean
 }
 
 export default function Login({
@@ -125,5 +125,5 @@ export default function Login({
                 </div>
             )}
         </AuthLayout>
-    );
+    )
 }

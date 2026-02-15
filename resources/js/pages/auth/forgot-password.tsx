@@ -1,14 +1,14 @@
 // Components
-import { login } from '@/routes';
-import { email } from '@/routes/password';
-import { Form, Head } from '@inertiajs/react';
+import { login } from '@/routes'
+import { email } from '@/routes/password'
+import { Form, Head } from '@inertiajs/react'
 
-import { Button } from '@/components/ui/button';
-import { Fieldset } from '@/components/ui/fieldset';
-import { Input } from '@/components/ui/input';
-import { BaseLink } from '@/components/ui/link';
-import { Loading } from '@/components/ui/loading';
-import AuthLayout from '@/layouts/auth-layout';
+import { Button } from '@/components/ui/button'
+import { Fieldset } from '@/components/ui/fieldset'
+import { Input } from '@/components/ui/input'
+import { BaseLink } from '@/components/ui/link'
+import { Loading } from '@/components/ui/loading'
+import AuthLayout from '@/layouts/auth-layout'
 
 export default function ForgotPassword({ status }: { status?: string }) {
     return (
@@ -67,5 +67,5 @@ export default function ForgotPassword({ status }: { status?: string }) {
                 </div>
             </div>
         </AuthLayout>
-    );
+    )
 }

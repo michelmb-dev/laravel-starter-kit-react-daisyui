@@ -3,8 +3,8 @@ import {
     CardBody,
     CardDescription,
     CardTitle,
-} from '@/components/ui/card';
-import { type ReactNode } from 'react';
+} from '@/components/ui/card'
+import type { ReactNode } from 'react'
 
 export default function AuthLayout({
     children,
@@ -12,9 +12,9 @@ export default function AuthLayout({
     description,
     ...props
 }: {
-    children: ReactNode;
-    title: string;
-    description: string;
+    children: ReactNode
+    title: string
+    description: string
 }) {
     return (
         <div className="grid h-screen place-items-center justify-items-center">
@@ -36,5 +36,5 @@ export default function AuthLayout({
                 </CardBody>
             </Card>
         </div>
-    );
+    )
 }

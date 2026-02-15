@@ -1,10 +1,10 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react'
 
-export type Appearance = 'light' | 'dark' | 'system';
+export type Appearance = 'light' | 'dark' | 'system'
 
 const prefersDark = () =>
     typeof window !== 'undefined' &&
-    window.matchMedia('(prefers-color-scheme: dark)').matches;
+    window.matchMedia('(prefers-color-scheme: dark)').matches
 
 const applyTheme = (appearance: Appearance) => {
     const theme =
@@ -12,52 +12,52 @@ const applyTheme = (appearance: Appearance) => {
             ? prefersDark()
                 ? 'dark'
                 : 'light'
-            : appearance;
+            : appearance
 
-    document.documentElement.setAttribute('data-theme', theme);
-    document.documentElement.style.colorScheme = theme;
-};
+    document.documentElement.setAttribute('data-theme', theme)
+    document.documentElement.style.colorScheme = theme
+}
 
 const setCookie = (name: string, value: string, days = 365) => {
     if (typeof document !== 'undefined') {
-        const maxAge = days * 24 * 60 * 60;
-        document.cookie = `${name}=${value};path=/;max-age=${maxAge};SameSite=Lax`;
+        const maxAge = days * 24 * 60 * 60
+        document.cookie = `${name}=${value};path=/;max-age=${maxAge};SameSite=Lax`
     }
-};
+}
 
 export function initializeTheme() {
     const savedAppearance =
-        (localStorage.getItem('appearance') as Appearance) || 'system';
-    applyTheme(savedAppearance);
+        (localStorage.getItem('appearance') as Appearance) || 'system'
+    applyTheme(savedAppearance)
 
     window
         .matchMedia('(prefers-color-scheme: dark)')
         .addEventListener('change', () => {
             if (localStorage.getItem('appearance') === 'system') {
-                applyTheme('system');
+                applyTheme('system')
             }
-        });
+        })
 }
 
 export function useAppearance() {
-    const [appearance, setAppearance] = useState<Appearance>('system');
+    const [appearance, setAppearance] = useState<Appearance>('system')
 
     const updateAppearance = useCallback((mode: Appearance) => {
-        setAppearance(mode);
-        localStorage.setItem('appearance', mode);
-        setCookie('appearance', mode);
-        applyTheme(mode);
-    }, []);
+        setAppearance(mode)
+        localStorage.setItem('appearance', mode)
+        setCookie('appearance', mode)
+        applyTheme(mode)
+    }, [])
 
     useEffect(() => {
         const savedAppearance = localStorage.getItem(
             'appearance',
-        ) as Appearance | null;
+        ) as Appearance | null
         if (savedAppearance) {
             // eslint-disable-next-line react-hooks/set-state-in-effect
-            updateAppearance(savedAppearance);
+            updateAppearance(savedAppearance)
         }
-    }, [updateAppearance]);
+    }, [updateAppearance])
 
-    return { appearance, updateAppearance } as const;
+    return { appearance, updateAppearance } as const
 }

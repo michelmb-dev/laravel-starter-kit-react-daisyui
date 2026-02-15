@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react';
+import type { ComponentProps } from 'react'
 
 export function Fieldset({
     title,
@@ -12,5 +12,5 @@ export function Fieldset({
             {children}
             {error && <p className="label text-error">{error}</p>}
         </fieldset>
-    );
+    )
 }

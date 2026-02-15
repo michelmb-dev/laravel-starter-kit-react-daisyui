@@ -1,15 +1,15 @@
-import { update } from '@/routes/password';
-import { Form, Head } from '@inertiajs/react';
+import { update } from '@/routes/password'
+import { Form, Head } from '@inertiajs/react'
 
-import { Button } from '@/components/ui/button';
-import { Fieldset } from '@/components/ui/fieldset';
-import { Input } from '@/components/ui/input';
-import { Loading } from '@/components/ui/loading';
-import AuthLayout from '@/layouts/auth-layout';
+import { Button } from '@/components/ui/button'
+import { Fieldset } from '@/components/ui/fieldset'
+import { Input } from '@/components/ui/input'
+import { Loading } from '@/components/ui/loading'
+import AuthLayout from '@/layouts/auth-layout'
 
 interface ResetPasswordProps {
-    token: string;
-    email: string;
+    token: string
+    email: string
 }
 
 export default function ResetPassword({ token, email }: ResetPasswordProps) {
@@ -85,5 +85,5 @@ export default function ResetPassword({ token, email }: ResetPasswordProps) {
                 )}
             </Form>
         </AuthLayout>
-    );
+    )
 }

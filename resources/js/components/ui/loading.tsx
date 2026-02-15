@@ -1,7 +1,7 @@
-import { cva, type VariantProps } from 'class-variance-authority';
+import { cva, type VariantProps } from 'class-variance-authority'
 
-import { cn } from '@/lib/utils';
-import { type ComponentProps } from 'react';
+import { cn } from '@/lib/utils'
+import type { ComponentProps } from 'react'
 
 const loadingVariants = cva('loading', {
     variants: {
@@ -20,7 +20,7 @@ const loadingVariants = cva('loading', {
             xl: 'loading-xl',
         },
     },
-});
+})
 
 export function Loading({
     className,
@@ -39,5 +39,5 @@ export function Loading({
             )}
             {...props}
         />
-    );
+    )
 }

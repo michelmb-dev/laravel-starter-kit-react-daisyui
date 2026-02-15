@@ -1,28 +1,28 @@
-import { UserMenu } from '@/components/auth/user';
+import { UserMenu } from '@/components/auth/user'
 import {
     Drawer,
     DrawerContent,
     DrawerOverlay,
     DrawerSide,
     DrawerToggle,
-} from '@/components/ui/drawer-sidebar';
-import { BaseLink, InertiaLink } from '@/components/ui/link';
+} from '@/components/ui/drawer-sidebar'
+import { BaseLink, InertiaLink } from '@/components/ui/link'
 import {
     NavigationMenu,
     NavigationMenuGroup,
     NavigationMenuItem,
-} from '@/components/ui/navigation-menu';
-import { useIsMobile } from '@/hooks/use-mobile';
-import { HeaderLayout } from '@/layouts/header-layout';
-import { cn } from '@/lib/utils';
-import { dashboard } from '@/routes';
-import { type NavItem, TBreadcrumbItem } from '@/types';
-import { BookOpen, FolderGitIcon, LayoutGrid } from 'lucide-react';
-import { ComponentProps, PropsWithChildren, useState } from 'react';
+} from '@/components/ui/navigation-menu'
+import { useIsMobile } from '@/hooks/use-mobile'
+import { HeaderLayout } from '@/layouts/header-layout'
+import { cn } from '@/lib/utils'
+import { dashboard } from '@/routes'
+import type { NavItem, TBreadcrumbItem } from '@/types'
+import { BookOpen, FolderGitIcon, LayoutGrid } from 'lucide-react'
+import { type ComponentProps, type PropsWithChildren, useState } from 'react'
 
 type Props = {
-    breadcrumbs: TBreadcrumbItem[];
-};
+    breadcrumbs: TBreadcrumbItem[]
+}
 
 const mainNavItems: NavItem[] = [
     {
@@ -30,7 +30,7 @@ const mainNavItems: NavItem[] = [
         href: dashboard(),
         icon: LayoutGrid,
     },
-];
+]
 
 const footerNavItems: NavItem[] = [
     {
@@ -43,14 +43,14 @@ const footerNavItems: NavItem[] = [
         href: 'https://laravel.com/docs/starter-kits#react',
         icon: BookOpen,
     },
-];
+]
 
 function DrawerSideContent({ children }: PropsWithChildren) {
     return (
         <div className="flex min-h-full flex-col items-start overflow-visible bg-base-300 transition-[width] duration-300 ease-in-out is-drawer-close:w-15 is-drawer-open:w-56">
             {children}
         </div>
-    );
+    )
 }
 
 function DrawerSideHeader({ className, children }: ComponentProps<'div'>) {
@@ -63,7 +63,7 @@ function DrawerSideHeader({ className, children }: ComponentProps<'div'>) {
         >
             {children}
         </div>
-    );
+    )
 }
 
 function DrawerSideNavigation({ className, children }: ComponentProps<'nav'>) {
@@ -71,18 +71,18 @@ function DrawerSideNavigation({ className, children }: ComponentProps<'nav'>) {
         <nav className={cn('w-full overflow-visible', className)}>
             {children}
         </nav>
-    );
+    )
 }
 
 export function AppLayout({ breadcrumbs, children }: PropsWithChildren<Props>) {
-    const isMobile = useIsMobile();
+    const isMobile = useIsMobile()
 
-    const [isOpen, setIsOpen] = useState<boolean>(!isMobile);
-    const [lastIsMobile, setLastIsMobile] = useState(isMobile);
+    const [isOpen, setIsOpen] = useState<boolean>(!isMobile)
+    const [lastIsMobile, setLastIsMobile] = useState(isMobile)
 
     if (isMobile !== lastIsMobile) {
-        setLastIsMobile(isMobile);
-        setIsOpen(!isMobile);
+        setLastIsMobile(isMobile)
+        setIsOpen(!isMobile)
     }
 
     return (
@@ -164,5 +164,5 @@ export function AppLayout({ breadcrumbs, children }: PropsWithChildren<Props>) {
                 </DrawerSideContent>
             </DrawerSide>
         </Drawer>
-    );
+    )
 }

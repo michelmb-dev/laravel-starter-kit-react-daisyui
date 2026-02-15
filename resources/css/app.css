@@ -15,6 +15,7 @@ body {
     theme:
         light --default,
         dark --prefersdark;
+    exclude: properties;
 }
 
 @plugin 'daisyui/theme' {
@@ -87,7 +88,7 @@ body {
     --noise: 0;
 }
 
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
 /* Remove outline in all inputs*/
 @utility input {

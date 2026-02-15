@@ -1,16 +1,15 @@
-import ProfileController from '@/actions/App/Http/Controllers/Settings/ProfileController';
-
-import Heading from '@/components/shared/heading';
-import { Button } from '@/components/ui/button';
-import { Dialog, DialogAction, DialogBox } from '@/components/ui/dialog';
-import { Fieldset } from '@/components/ui/fieldset';
-import { Input } from '@/components/ui/input';
-import { Form } from '@inertiajs/react';
-import { useRef } from 'react';
+import { Form } from '@inertiajs/react'
+import { useRef } from 'react'
+import ProfileController from '@/actions/App/Http/Controllers/Settings/ProfileController'
+import Heading from '@/components/shared/heading'
+import { Button } from '@/components/ui/button'
+import { Dialog, DialogAction, DialogBox } from '@/components/ui/dialog'
+import { Fieldset } from '@/components/ui/fieldset'
+import { Input } from '@/components/ui/input'
 
 export function DeleteUser() {
-    const modalRef = useRef<HTMLDialogElement>(null);
-    const passwordInput = useRef<HTMLInputElement>(null);
+    const modalRef = useRef<HTMLDialogElement>(null)
+    const passwordInput = useRef<HTMLInputElement>(null)
 
     return (
         <>
@@ -26,7 +25,7 @@ export function DeleteUser() {
                     </p>
                     <button
                         className="mt-4 link text-error"
-                        onClick={() => modalRef.current!.showModal()}
+                        onClick={() => modalRef.current?.showModal()}
                     >
                         Delete Account
                     </button>
@@ -79,8 +78,8 @@ export function DeleteUser() {
                                         <Button
                                             color="neutral"
                                             onClick={() => {
-                                                resetAndClearErrors();
-                                                modalRef.current!.close();
+                                                resetAndClearErrors()
+                                                modalRef.current?.close()
                                             }}
                                         >
                                             Cancel
@@ -101,5 +100,5 @@ export function DeleteUser() {
                 </Dialog>
             </div>
         </>
-    );
+    )
 }

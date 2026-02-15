@@ -1,6 +1,6 @@
-import { cn } from '@/lib/utils';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { type ComponentProps } from 'react';
+import { cn } from '@/lib/utils'
+import { cva, type VariantProps } from 'class-variance-authority'
+import type { ComponentProps } from 'react'
 
 const collapseVariants = cva('collapse', {
     variants: {
@@ -13,7 +13,7 @@ const collapseVariants = cva('collapse', {
             close: 'collapse-close',
         },
     },
-});
+})
 
 export function Collapse({
     icon,
@@ -31,7 +31,7 @@ export function Collapse({
             )}
             {...props}
         />
-    );
+    )
 }
 
 export function CollapseTitle({ ...props }: ComponentProps<'span'>) {
@@ -41,7 +41,7 @@ export function CollapseTitle({ ...props }: ComponentProps<'span'>) {
             className="collapse-title font-semibold"
             {...props}
         ></span>
-    );
+    )
 }
 
 export function CollapseContent({ ...props }: ComponentProps<'p'>) {
@@ -51,5 +51,5 @@ export function CollapseContent({ ...props }: ComponentProps<'p'>) {
             className="collapse-content text-sm"
             {...props}
         ></p>
-    );
+    )
 }

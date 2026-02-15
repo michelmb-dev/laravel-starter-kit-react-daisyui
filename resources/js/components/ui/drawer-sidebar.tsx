@@ -1,8 +1,8 @@
-import { cn } from '@/lib/utils';
-import { ComponentProps } from 'react';
+import { cn } from '@/lib/utils'
+import type { ComponentProps } from 'react'
 
 export function Drawer({ className, ...props }: ComponentProps<'div'>) {
-    return <div className={cn('drawer', className)} {...props} />;
+    return <div className={cn('drawer', className)} {...props} />
 }
 
 export function DrawerToggle({
@@ -17,11 +17,11 @@ export function DrawerToggle({
             className={cn('drawer-toggle', className)}
             {...props}
         />
-    );
+    )
 }
 
 export function DrawerContent({ className, ...props }: ComponentProps<'div'>) {
-    return <div className={cn('drawer-content', className)} {...props} />;
+    return <div className={cn('drawer-content', className)} {...props} />
 }
 
 export function DrawerSide({ className, ...props }: ComponentProps<'div'>) {
@@ -30,7 +30,7 @@ export function DrawerSide({ className, ...props }: ComponentProps<'div'>) {
             className={cn('drawer-side overflow-visible', className)}
             {...props}
         />
-    );
+    )
 }
 
 export function DrawerOverlay({
@@ -45,5 +45,5 @@ export function DrawerOverlay({
             className={cn('drawer-overlay', className)}
             {...props}
         />
-    );
+    )
 }

@@ -1,6 +1,6 @@
-import { cn } from '@/lib/utils';
-import { cva, VariantProps } from 'class-variance-authority';
-import { type ComponentProps } from 'react';
+import { cn } from '@/lib/utils'
+import { cva, type VariantProps } from 'class-variance-authority'
+import type { ComponentProps } from 'react'
 
 const inputVariants = cva('input', {
     variants: {
@@ -25,7 +25,7 @@ const inputVariants = cva('input', {
             full: 'w-full',
         },
     },
-});
+})
 
 export function Input({
     style,
@@ -48,7 +48,7 @@ export function Input({
             )}
             {...props}
         />
-    );
+    )
 }
 
 export function InputWithLabel({
@@ -62,8 +62,8 @@ export function InputWithLabel({
     ...props
 }: ComponentProps<'input'> &
     VariantProps<typeof inputVariants> & {
-        label: string;
-        position?: 'start' | 'end';
+        label: string
+        position?: 'start' | 'end'
     }) {
     return (
         <label
@@ -80,7 +80,7 @@ export function InputWithLabel({
             <input type={type} {...props} />
             {position === 'end' && <span className="label">{label}</span>}
         </label>
-    );
+    )
 }
 
 export function InputWithFloatingLabel({
@@ -93,7 +93,7 @@ export function InputWithFloatingLabel({
     ...props
 }: ComponentProps<'input'> &
     VariantProps<typeof inputVariants> & {
-        label: string;
+        label: string
     }) {
     return (
         <label className="floating-label">
@@ -111,5 +111,5 @@ export function InputWithFloatingLabel({
                 {...props}
             />
         </label>
-    );
+    )
 }

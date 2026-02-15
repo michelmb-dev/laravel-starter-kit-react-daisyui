@@ -1,10 +1,10 @@
-import { cn } from '@/lib/utils';
-import { cva, VariantProps } from 'class-variance-authority';
-import { ComponentProps } from 'react';
+import { cn } from '@/lib/utils'
+import { cva, type VariantProps } from 'class-variance-authority'
+import type { ComponentProps } from 'react'
 
 const menuVariants = cva('menu', {
     variants: {},
-});
+})
 
 export function NavigationMenu({
     className,
@@ -19,7 +19,7 @@ export function NavigationMenu({
             )}
             {...props}
         />
-    );
+    )
 }
 
 export function NavigationMenuGroup({
@@ -40,9 +40,9 @@ export function NavigationMenuGroup({
             </label>
             {children}
         </div>
-    );
+    )
 }
 
 export function NavigationMenuItem({ ...props }: ComponentProps<'li'>) {
-    return <li {...props} />;
+    return <li {...props} />
 }

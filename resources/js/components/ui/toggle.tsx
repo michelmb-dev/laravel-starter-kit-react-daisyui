@@ -1,6 +1,6 @@
-import { cn } from '@/lib/utils';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { type ComponentProps } from 'react';
+import { cn } from '@/lib/utils'
+import { cva, type VariantProps } from 'class-variance-authority'
+import type { ComponentProps } from 'react'
 
 const toggleVariants = cva('toggle', {
     variants: {
@@ -21,7 +21,7 @@ const toggleVariants = cva('toggle', {
             xl: 'toggle-xl',
         },
     },
-});
+})
 
 export function Toggle({
     color,
@@ -41,5 +41,5 @@ export function Toggle({
             )}
             {...props}
         />
-    );
+    )
 }

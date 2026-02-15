@@ -1,7 +1,12 @@
-import { Button, buttonVariants } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { type ComponentProps, SyntheticEvent, useEffect, useRef } from 'react';
+import { Button, buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+import { cva, type VariantProps } from 'class-variance-authority'
+import {
+    type ComponentProps,
+    type SyntheticEvent,
+    useEffect,
+    useRef,
+} from 'react'
 
 const dialogVariants = cva('modal', {
     variants: {
@@ -15,14 +20,13 @@ const dialogVariants = cva('modal', {
             end: 'modal-end',
         },
     },
-});
+})
 
 export interface DialogProps
-    extends
-        Omit<ComponentProps<'dialog'>, 'open'>,
+    extends Omit<ComponentProps<'dialog'>, 'open'>,
         VariantProps<typeof dialogVariants> {
-    open?: boolean;
-    onOpenChange?: (open: boolean) => void;
+    open?: boolean
+    onOpenChange?: (open: boolean) => void
 }
 
 export function Dialog({
@@ -35,27 +39,27 @@ export function Dialog({
     onClose,
     ...props
 }: DialogProps) {
-    const dialogRef = useRef<HTMLDialogElement>(null);
+    const dialogRef = useRef<HTMLDialogElement>(null)
 
     useEffect(() => {
-        const dialog = dialogRef.current;
-        if (!dialog) return;
+        const dialog = dialogRef.current
+        if (!dialog) return
 
         if (open) {
             if (!dialog.open) {
-                dialog.showModal();
+                dialog.showModal()
             }
         } else {
             if (dialog.open) {
-                dialog.close();
+                dialog.close()
             }
         }
-    }, [open]);
+    }, [open])
 
     const handleClose = (event: SyntheticEvent<HTMLDialogElement>) => {
-        onOpenChange?.(false);
-        onClose?.(event);
-    };
+        onOpenChange?.(false)
+        onClose?.(event)
+    }
 
     return (
         <dialog
@@ -65,15 +69,15 @@ export function Dialog({
             {...props}
             className={cn(dialogVariants({ action, placement, className }))}
         />
-    );
+    )
 }
 
 export function DialogBox({ className, ...props }: ComponentProps<'div'>) {
-    return <div className={cn('modal-box', className)} {...props} />;
+    return <div className={cn('modal-box', className)} {...props} />
 }
 
 export function DialogAction({ className, ...props }: ComponentProps<'div'>) {
-    return <div className={cn('modal-action', className)} {...props} />;
+    return <div className={cn('modal-action', className)} {...props} />
 }
 
 export function DialogButtonClose({
@@ -84,5 +88,5 @@ export function DialogButtonClose({
         <form method="dialog">
             <Button className={cn(buttonVariants({ className }))} {...props} />
         </form>
-    );
+    )
 }
