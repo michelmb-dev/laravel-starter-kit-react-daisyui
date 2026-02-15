@@ -1,11 +1,11 @@
-import Heading from '@/components/shared/heading'
+import { Transition } from '@headlessui/react'
 import { Form } from '@inertiajs/react'
+import { useRef } from 'react'
 import PasswordController from '@/actions/App/Http/Controllers/Settings/PasswordController'
+import Heading from '@/components/shared/heading'
+import { Button } from '@/components/ui/button'
 import { Fieldset } from '@/components/ui/fieldset'
 import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
-import { Transition } from '@headlessui/react'
-import { useRef } from 'react'
 
 export function Password() {
     const passwordInput = useRef<HTMLInputElement>(null)
@@ -53,7 +53,7 @@ export function Password() {
                                     name="current_password"
                                     type="password"
                                     className="mt-1 block w-full"
-                                    autoComplete="current-password"
+                                    autoComplete="off"
                                     placeholder="Current password"
                                 />
                             </Fieldset>
@@ -70,7 +70,7 @@ export function Password() {
                                     name="password"
                                     type="password"
                                     className="mt-1 block w-full"
-                                    autoComplete="new-password"
+                                    autoComplete="off"
                                     placeholder="New password"
                                 />
                             </Fieldset>
@@ -86,7 +86,7 @@ export function Password() {
                                     name="password_confirmation"
                                     type="password"
                                     className="mt-1 block w-full"
-                                    autoComplete="new-password"
+                                    autoComplete="off"
                                     placeholder="Confirm password"
                                 />
                             </Fieldset>
