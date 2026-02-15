@@ -41,7 +41,7 @@ jobs:
         run: bun run format
 
       - name: Lint Frontend
-        run: bun run lint
+        run: bun run linter
 
       # - name: Commit Changes
       #   uses: stefanzweifel/git-auto-commit-action@v7
